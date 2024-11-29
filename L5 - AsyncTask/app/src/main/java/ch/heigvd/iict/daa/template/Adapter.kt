@@ -8,14 +8,13 @@ import android.widget.ImageView
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.net.URL
 
 class Adapter(private val lifecycleOwner: LifecycleOwner) : RecyclerView.Adapter<Adapter.ImageViewHolder>() {
 
     // Liste des URLs des images
-    private val imageUrls = (1..100).map { "https://daa.iict.ch/images/$it.jpg" }
+    private val imageUrls = (1..10000).map { "https://daa.iict.ch/images/$it.jpg" }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_image, parent, false)
