@@ -42,7 +42,9 @@ suspend fun decodeImage(bytes: ByteArray?): Bitmap? = withContext(Dispatchers.De
 suspend fun displayImage(imageView: ImageView, bmp: Bitmap?) = withContext(Dispatchers.Main) {
     if (bmp != null) {
         imageView.setImageBitmap(bmp)
+        Log.d("displayImage", "display réussi : ${bmp.width}x${bmp.height}")
     } else {
         imageView.setImageResource(android.R.drawable.ic_menu_report_image)
+        Log.d("displayImage", "display échoué !")
     }
 }

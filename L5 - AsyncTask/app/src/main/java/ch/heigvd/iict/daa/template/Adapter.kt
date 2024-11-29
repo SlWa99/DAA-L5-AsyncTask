@@ -44,7 +44,7 @@ class Adapter(private val lifecycleOwner: LifecycleOwner) : RecyclerView.Adapter
                 // Si l'image est en cache, l'affiche directement
                 Log.d("ImageCache", "Image récupérée depuis le cache : $imageUrl")
                 imageView.setImageBitmap(cachedBitmap)
-                progressBar.visibility = View.GONE
+                progressBar.visibility = View.INVISIBLE // chelou jsp pk le gone marche pas
             } else {
                 // Sinon, télécharge et décode l'image
                 lifecycleOwner.lifecycleScope.launch {
@@ -67,7 +67,7 @@ class Adapter(private val lifecycleOwner: LifecycleOwner) : RecyclerView.Adapter
                         imageView.setImageResource(android.R.drawable.ic_menu_report_image)
                     } finally {
                         // Masque la ProgressBar après le traitement
-                        progressBar.visibility = View.GONE
+                        progressBar.visibility = View.INVISIBLE // chelou jsp pk le gone marche pas
                     }
                 }
             }
