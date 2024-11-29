@@ -3,6 +3,7 @@ package ch.heigvd.iict.daa.template
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
+import android.widget.ImageView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.IOException
@@ -11,9 +12,12 @@ import java.net.URL
 // Téléchargement de l'image
 suspend fun downloadImage(url: URL): ByteArray? = withContext(Dispatchers.IO) {
     try {
-        url.readBytes()
+        Log.d("ImageDownload", "Téléchargement de : $url")
+        val bytes = url.readBytes()
+        Log.d("ImageDownload", "Téléchargement réussi : ${bytes.size} bytes")
+        bytes
     } catch (e: IOException) {
-        Log.w("ImageDownload", "Exception while downloading image", e)
+        Log.e("ImageDownload", "Erreur lors du téléchargement", e)
         null
     }
 }
@@ -21,9 +25,15 @@ suspend fun downloadImage(url: URL): ByteArray? = withContext(Dispatchers.IO) {
 // Décodage de l'image
 suspend fun decodeImage(bytes: ByteArray?): Bitmap? = withContext(Dispatchers.Default) {
     try {
-        bytes?.let { BitmapFactory.decodeByteArray(it, 0, it.size) }
-    } catch (e: IOException) {
-        Log.w("ImageDecode", "Exception while decoding image", e)
+        if (bytes == null) {
+            Log.e("ImageDecode", "Les bytes sont nulls")
+            return@withContext null
+        }
+        val bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+        Log.d("ImageDecode", "Décodage réussi : ${bmp.width}x${bmp.height}")
+        bmp
+    } catch (e: Exception) {
+        Log.e("ImageDecode", "Erreur de décodage", e)
         null
     }
 }
@@ -33,6 +43,6 @@ suspend fun displayImage(imageView: ImageView, bmp: Bitmap?) = withContext(Dispa
     if (bmp != null) {
         imageView.setImageBitmap(bmp)
     } else {
-        imageView.setImageResource(R.drawable.error_placeholder)
+        imageView.setImageResource(android.R.drawable.ic_menu_report_image)
     }
 }
