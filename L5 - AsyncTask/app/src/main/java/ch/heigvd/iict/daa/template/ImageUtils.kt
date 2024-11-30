@@ -19,6 +19,9 @@ suspend fun downloadImage(url: URL): ByteArray? = withContext(Dispatchers.IO) {
     } catch (e: IOException) {
         Log.e("ImageDownload", "Erreur lors du téléchargement", e)
         null
+    } catch (e: Exception) {
+        Log.e("ImageDownload", "Erreur inattendue", e)
+        null
     }
 }
 
