@@ -4,4 +4,37 @@
     <string name="reload_cache">Reload images</string>
     <string name="images_with_number">images with number</string>
     <string name="gallery">Gallery</string>
+    <!-- Logs -->
+    <string name="log_error_downloading">Erreur lors du téléchargement de : %1$s</string>
+    <string name="log_cache_cleaned">Cache local nettoyé.</string>
+
+
+    <!-- Logs: ImageCache -->
+    <string name="log_tag_image_cache">ImageCache</string>
+    <string name="log_image_from_cache">Image récupérée depuis le cache : %1$s</string>
+    <string name="log_image_not_in_cache">Image absente du cache : %1$s</string>
+    <string name="log_image_added_to_cache">Image ajoutée au cache : %1$s</string>
+    <string name="log_cache_cleared">Cache vidé avec succès</string>
+
+    <!-- Logs: NetworkUtils -->
+    <string name="log_tag_image_download">ImageDownload</string>
+    <string name="log_download_start">Téléchargement commencé : %1$s</string>
+    <string name="log_download_success">Téléchargement réussi : %1$d bytes</string>
+    <string name="log_download_error">Erreur lors du téléchargement de : %1$s</string>
+    <string name="log_tag_image_decode">ImageDecode</string>
+    <string name="log_decode_success">Décodage réussi : %1$d x %2$d</string>
+    <string name="log_decode_null">Les données de l image sont nulles</string>
+    <string name="log_decode_error">Erreur lors du décodage</string>
+
+    <!-- Logs: Display -->
+    <string name="log_tag_display_image">DisplayImage</string>
+    <string name="log_display_success">Affichage réussi : %1$d x %2$d</string>
+    <string name="log_display_failed">Échec de l affichage de l image</string>
+
+    <!-- Logs: Worker -->
+    <string name="log_tag_worker">CacheCleanerWorker</string>
+    <string name="log_periodic_schedule">Nettoyage périodique planifié toutes les 15 minutes</string>
+
+    <!-- Toasts -->
+    <string name="toast_cache_cleared">Cache vidé avec succès !</string>
 </resources>

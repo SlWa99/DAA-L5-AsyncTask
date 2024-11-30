@@ -71,8 +71,5 @@ class Adapter(private val lifecycleOwner: LifecycleOwner) : RecyclerView.Adapter
                 }
             }
         }
-
-
     }
-
 }

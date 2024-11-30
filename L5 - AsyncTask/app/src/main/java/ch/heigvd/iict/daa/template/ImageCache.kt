@@ -20,7 +20,12 @@ object ImageCache {
 
     // Récupérer une image du cache
     fun get(key: String): Bitmap? {
-        return cache.get(key)
+        return cache.get(key)?.also {
+            println("Image récupérée depuis le cache : $key")
+        } ?: run {
+            println("Image absente du cache (à télécharger) : $key")
+            null
+        }
     }
 
     fun clear() {

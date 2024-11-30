@@ -14,13 +14,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-
-        // Configuration de la RecyclerView avec un GridLayoutManager pour 3 colonnes
         recyclerView.layoutManager = GridLayoutManager(this, 3)
+        recyclerView.adapter = Adapter(this)
 
-        // Configuration de l'adaptateur
-        val adapter = Adapter(this)
-        recyclerView.adapter = adapter
+        schedulePeriodicCacheCleaning(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -28,12 +25,8 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return if (item.itemId == R.id.menu_reload_cache) {
-            // Action à effectuer pour recharger
-            Toast.makeText(this, "Reload action triggered", Toast.LENGTH_SHORT).show()
-            // Appelle ta méthode de rechargement ici
             reloadData()
             true
         } else {
@@ -41,12 +34,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // TODO : INVESITGUER
     private fun reloadData() {
-        // Vide le cache
         ImageCache.clear()
-        Toast.makeText(this, "Cache vidé !", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.toast_cache_cleared), Toast.LENGTH_SHORT).show()
     }
-
-
 }
