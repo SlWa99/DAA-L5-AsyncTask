@@ -1,3 +1,10 @@
+/**
+ * Nom du fichier : ImageUtils.kt
+ * Description    : Fonctions utilitaires pour le téléchargement, le décodage et
+ *                  l'affichage des images.
+ * Auteurs        : ICI
+ * Date           : 1er décembre 2024
+ */
 package ch.heigvd.iict.daa.template
 
 import android.graphics.Bitmap
@@ -9,7 +16,12 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.net.URL
 
-// Téléchargement de l'image
+/**
+ * Fonction : downloadImage
+ * Description : Télécharge une image depuis une URL sous forme de tableau de bytes.
+ * @param url URL de l'image à télécharger.
+ * @return Tableau de bytes contenant les données de l'image ou null en cas d'échec.
+ */
 suspend fun downloadImage(url: URL): ByteArray? = withContext(Dispatchers.IO) {
     try {
         Log.d("ImageDownload", "Téléchargement de : $url")
@@ -25,7 +37,12 @@ suspend fun downloadImage(url: URL): ByteArray? = withContext(Dispatchers.IO) {
     }
 }
 
-// Décodage de l'image
+/**
+ * Fonction : decodeImage
+ * Description : Décode un tableau de bytes en un Bitmap.
+ * @param bytes Tableau de bytes représentant l'image.
+ * @return Bitmap décodé ou null si le décodage échoue.
+ */
 suspend fun decodeImage(bytes: ByteArray?): Bitmap? = withContext(Dispatchers.Default) {
     try {
         if (bytes == null) {
@@ -41,7 +58,13 @@ suspend fun decodeImage(bytes: ByteArray?): Bitmap? = withContext(Dispatchers.De
     }
 }
 
-// Affichage de l'image
+/**
+ * Fonction : displayImage
+ * Description : Affiche un Bitmap dans un ImageView sur le thread principal.
+ *               Si le Bitmap est null, affiche une icône par défaut.
+ * @param imageView ImageView où afficher l'image.
+ * @param bmp Bitmap à afficher.
+ */
 suspend fun displayImage(imageView: ImageView, bmp: Bitmap?) = withContext(Dispatchers.Main) {
     if (bmp != null) {
         imageView.setImageBitmap(bmp)

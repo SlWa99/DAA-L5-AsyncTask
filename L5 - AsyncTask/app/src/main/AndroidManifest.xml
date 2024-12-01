@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Nom du fichier : AndroidManifest.xml
+    Description    : Fichier manifeste de l'application Android, définissant les permissions, les activités,
+                     et autres configurations globales de l'application.
+    Auteurs        : ICI
+    Date           : 1er décembre 2024
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 

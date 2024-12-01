@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Nom du fichier : item_image.xml
+    Description    : Layout pour afficher une image avec une ProgressBar indiquant son chargement.
+    Auteurs        : ICI
+    Date           : 1er décembre 2024
+-->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

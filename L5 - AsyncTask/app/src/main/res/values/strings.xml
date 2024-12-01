@@ -1,3 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Nom du fichier : strings.xml
+    Description    : Définitions des chaînes de caractères utilisées dans l'application, incluant les libellés, les logs et les messages Toast.
+    Auteurs        : ICI
+    Date           : 1er décembre 2024
+-->
 <resources>
     <string name="app_name">Labo 5</string>
     <string name="welcome">Welcome to DAA!</string>

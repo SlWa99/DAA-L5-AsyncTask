@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Nom du fichier : integer.xml
+    Description    : Définitions des valeurs numériques utilisées dans l'application (en octets et kilo-octets).
+    Auteurs        : ICI
+    Date           : 1er décembre 2024
+-->
 <resources>
     <string name="kilo_octets">1024</string>
     <string name="octets">8</string>
