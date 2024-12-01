@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = Adapter(this)
 
-        //ImageCache.initialize(this)
+        ImageCache.initialize(this)
         schedulePeriodicCacheCleaning(this)
     }
 

@@ -22,8 +22,6 @@
         android:padding="0dp"
         tools:ignore="MissingConstraints" />
 
-
-
     <!-- ProgressBar pour indiquer le chargement -->
     <ProgressBar
         android:id="@+id/progressBar"
