@@ -1,7 +1,7 @@
 /**
  * Nom du fichier : CacheScheduler.kt
  * Description    : Planification périodique pour le nettoyage du cache à l'aide de WorkManager.
- * Auteurs        : ICI
+ * Auteurs        : Bugna, Slimani & Steiner
  * Date           : 1er décembre 2024
  */
 package ch.heigvd.iict.daa.template

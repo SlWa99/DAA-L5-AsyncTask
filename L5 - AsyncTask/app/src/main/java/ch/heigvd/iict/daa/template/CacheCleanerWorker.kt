@@ -1,7 +1,7 @@
 /**
  * Nom du fichier : CacheCleanerWorker.kt
  * Description    : Implémentation d'une tâche WorkManager pour le nettoyage périodique du cache.
- * Auteurs        : ICI
+ * Auteurs        : Bugna, Slimani & Steiner
  * Date           : 1er décembre 2024
  */
 package ch.heigvd.iict.daa.template

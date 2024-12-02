@@ -2,7 +2,7 @@
 <!--
     Nom du fichier : item_image.xml
     Description    : Layout pour afficher une image avec une ProgressBar indiquant son chargement.
-    Auteurs        : ICI
+    Auteurs        : Bugna, Slimani & Steiner
     Date           : 1er décembre 2024
 -->
 <androidx.constraintlayout.widget.ConstraintLayout

@@ -3,7 +3,7 @@
     Nom du fichier : AndroidManifest.xml
     Description    : Fichier manifeste de l'application Android, définissant les permissions, les activités,
                      et autres configurations globales de l'application.
-    Auteurs        : ICI
+    Auteurs        : Bugna, Slimani & Steiner
     Date           : 1er décembre 2024
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"

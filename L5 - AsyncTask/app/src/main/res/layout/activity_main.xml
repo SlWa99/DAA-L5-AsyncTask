@@ -2,7 +2,7 @@
 <!--
     Nom du fichier : activity_main.xml
     Description    : Layout principal de l'application, contenant une AppBar et un RecyclerView.
-    Auteurs        : ICI
+    Auteurs        : Bugna, Slimani & Steiner
     Date           : 1er décembre 2024
 -->
 <androidx.constraintlayout.widget.ConstraintLayout

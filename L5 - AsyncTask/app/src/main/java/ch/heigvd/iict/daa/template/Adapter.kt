@@ -2,7 +2,7 @@
  * Nom du fichier : Adapter.kt
  * Description    : Adapter pour la RecyclerView, gérant l'affichage des images numérotées
  *                  avec gestion du cache et téléchargement asynchrone.
- * Auteurs        : ICI
+ * Auteurs        : Bugna, Slimani & Steiner
  * Date           : 1er décembre 2024
  */
 package ch.heigvd.iict.daa.template

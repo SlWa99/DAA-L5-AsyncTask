@@ -2,7 +2,7 @@
  * Nom du fichier : ImageUtils.kt
  * Description    : Fonctions utilitaires pour le téléchargement, le décodage et
  *                  l'affichage des images.
- * Auteurs        : ICI
+ * Auteurs        : Bugna, Slimani & Steiner
  * Date           : 1er décembre 2024
  */
 package ch.heigvd.iict.daa.template

@@ -2,7 +2,7 @@
  * Nom du fichier : ImageCache.kt
  * Description    : Gestionnaire de cache pour les images, utilisant un LruCache pour optimiser
  *                  l'utilisation de la mémoire et améliorer les performances de chargement.
- * Auteurs        : ICI
+ * Auteurs        : Bugna, Slimani & Steiner
  * Date           : 1er décembre 2024
  */
 package ch.heigvd.iict.daa.template

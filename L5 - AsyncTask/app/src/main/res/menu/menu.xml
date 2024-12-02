@@ -2,7 +2,7 @@
 <!--
     Nom du fichier : menu.xml
     Description    : Menu avec une option pour recharger le cache de l'application.
-    Auteurs        : ICI
+    Auteurs        : Bugna, Slimani & Steiner
     Date           : 1er décembre 2024
 -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
