@@ -35,8 +35,10 @@ En stoquant la référance du Job on peut le `cancel` en utilisant `job?.cancel(
 === 3.2
 _Comment pouvons-nous nous assurer que toutes les Coroutines soient correctement stoppées lorsque l’utilisateur quitte l’Activité ? Veuillez expliquer la solution que vous avez mise en œuvre, est-ce la plus adaptée ?_
 
-Le scope auxquels les Coroutines sont associées se termine automatiquement lorsque l'Activity est détruite. Cela est possible car le contenu entre les accolades est une coroutine lambda qui va être lancée dans le
-scope lifecycleScopeActivity.
+Les Coroutines sont associées au scope du cycle de vie de l'activité via lifecycleScope. Ce dernier est automatiquement annulé lorsque l'activité est détruite. Cela fonctionne car les Coroutines lancées à l'intérieur de ce scope (par exemple via launch { ... }) s'exécutent dans un contexte lié à l'activité. Ainsi, elles sont automatiquement annulées lorsque le cycle de vie de l'activité prend fin, évitant tout risque de fuite de ressources.
+
+Dans notre code, nous transmettons le lifecycleScope de l'activité à l'Adapter. Celui-ci va l'utiliser pour lancer des Coroutines de manière sécurisée, comme dans l'exemple suivant : lifecycleOwner.lifecycleScope.launch { ... }
+
 
 === 3.3
 _Est-ce que l’utilisation du Dispatchers.IO est la plus adaptée pour des tâches de téléchargement ? Ou faut-il plutôt utiliser un autre Dispatcher, si oui lequel ? Veuillez illustrer votre réponse en effectuant quelques tests._
@@ -80,7 +82,7 @@ itemView.context.startActivity(intent)
 === 4.1
 _Lors du lancement de la tâche ponctuelle, comment pouvons-nous faire en sorte que la galerie soit rafraîchie ?_
 
-On pourrait faire en sorte que lorsqu'a le cleaner fait son taff on appel en plus un rafraichissement, comme suit :
+On pourrait faire en sorte que lorsque le cleaner effectue sa tâche on appelle en plus un rafraichissement, comme suit :
 ```kt
 override fun doWork(): Result {
     val cacheDir = applicationContext.cacheDir
@@ -94,7 +96,7 @@ override fun doWork(): Result {
     return Result.success()
 }
 ```
-Et écouter le braodcastReceiver (initialisé dans la mainactivity par exemple) dans l'activité afin de notifier l'adaptateur de recharger les images.
+Et écouter le broadcastReceiver (initialisé dans la mainactivity par exemple) dans l'activité afin de notifier l'adaptateur de recharger les images.
 
 Sinon on peut simplement changer d'adapteur dansd le `reloadData()` de la `mainActivity` :
 ```kt
