@@ -44,4 +44,5 @@
 
     <!-- Toasts -->
     <string name="toast_cache_cleared">Cache vidé avec succès !</string>
+    <string name="pour_les_bonnes_pratiques">Pour les bonnes pratiques !</string>
 </resources>

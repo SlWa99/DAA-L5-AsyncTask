@@ -35,9 +35,8 @@ En stoquant la référance du Job on peut le `cancel` en utilisant `job?.cancel(
 === 3.2
 _Comment pouvons-nous nous assurer que toutes les Coroutines soient correctement stoppées lorsque l’utilisateur quitte l’Activité ? Veuillez expliquer la solution que vous avez mise en œuvre, est-ce la plus adaptée ?_
 
-Le scope auxquels les Coroutines sont associées se termine automatiquement lorsque l'Activity est détruite. 
-
-TODO : je ne sais pas quoi dire de plus il y a une double question mais pour moi la réponse comme ça suffit. Enfin il me semble
+Le scope auxquels les Coroutines sont associées se termine automatiquement lorsque l'Activity est détruite. Cela est possible car le contenu entre les accolades est une coroutine lambda qui va être lancée dans le
+scope lifecycleScopeActivity.
 
 === 3.3
 _Est-ce que l’utilisation du Dispatchers.IO est la plus adaptée pour des tâches de téléchargement ? Ou faut-il plutôt utiliser un autre Dispatcher, si oui lequel ? Veuillez illustrer votre réponse en effectuant quelques tests._
