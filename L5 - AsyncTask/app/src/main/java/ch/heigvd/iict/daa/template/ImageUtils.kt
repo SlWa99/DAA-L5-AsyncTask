@@ -15,6 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.net.URL
+import kotlin.time.measureTimedValue
 
 /**
  * Fonction : downloadImage
@@ -23,18 +24,22 @@ import java.net.URL
  * @return Tableau de bytes contenant les données de l'image ou null en cas d'échec.
  */
 suspend fun downloadImage(url: URL): ByteArray? = withContext(Dispatchers.IO) {
-    try {
-        Log.d("ImageDownload", "Téléchargement de : $url")
-        val bytes = url.readBytes()
-        Log.d("ImageDownload", "Téléchargement réussi : ${bytes.size} bytes")
-        bytes
-    } catch (e: IOException) {
-        Log.e("ImageDownload", "Erreur lors du téléchargement", e)
-        null
-    } catch (e: Exception) {
-        Log.e("ImageDownload", "Erreur inattendue", e)
-        null
+    val (value, timeTaken) = measureTimedValue {
+        try {
+            Log.d("ImageDownload", "Téléchargement de : $url")
+            val bytes = url.readBytes()
+            Log.d("ImageDownload", "Téléchargement réussi : ${bytes.size} bytes")
+            bytes
+        } catch (e: IOException) {
+            Log.e("ImageDownload", "Erreur lors du téléchargement", e)
+            null
+        } catch (e: Exception) {
+            Log.e("ImageDownload", "Erreur inattendue", e)
+            null
+        }
     }
+    Log.d("measureTimedValue", "Time elapsed: ${timeTaken.inWholeMilliseconds} milliseconds ($timeTaken)")
+    value
 }
 
 /**

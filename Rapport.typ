@@ -47,7 +47,11 @@ Pour les tâches intensives en I/O comme le téléchargement de fichiers ou la l
 
 (`Dispatchers.Default` est optimisé pour des tâches de calcul (CPU-bound) et ne gère pas bien les opérations de blocage. Cela  pourrait bloquer des threads nécessaires à d'autres calculs.)
 
-TODO : Malheureusement mon ordi galère donc je ne peux pas vraiment faire de test la dessus : remplacer le dispatcher pour le download par `Default`, ajouter des log de timer et faire des screen pls
+Les moyennes des mesures sont :
+- Default : ~180,69 ms
+- IO : ~3329,59 ms
+- Default_2 : ~59,05 ms
+- IO_2 : ~2911,85 ms
 
 === 3.4
 _Nous souhaitons que l’utilisateur puisse cliquer sur une des images de la galerie afin de pouvoir, par exemple, l’ouvrir en plein écran. Comment peut-on mettre en place cette fonctionnalité avec une RecyclerView? Comment faire en sorte que l’utilisateur obtienne un feedback visuel lui indiquant que son clic a bien été effectué, sur la bonne vue._
