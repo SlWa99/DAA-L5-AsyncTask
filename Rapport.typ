@@ -43,15 +43,15 @@ Dans notre code, nous transmettons le lifecycleScope de l'activité à l'Adapter
 === 3.3
 _Est-ce que l’utilisation du Dispatchers.IO est la plus adaptée pour des tâches de téléchargement ? Ou faut-il plutôt utiliser un autre Dispatcher, si oui lequel ? Veuillez illustrer votre réponse en effectuant quelques tests._
 
-Pour les tâches intensives en I/O comme le téléchargement de fichiers ou la lecture depuis le réseau, `Dispatchers.IO` est le choix recommandé. Il est optimisé pour les opérations de blocage (telles que les requêtes réseau ou la lecture/écriture de fichiers) et gère efficacement un pool de threads dédiés à ces tâches.
+Pour les tâches intensives en I/O comme le téléchargement de fichiers ou la lecture depuis le réseau, `Dispatchers.IO` est le choix recommandé. Il est optimisé pour les opérations de blocage (telles que les requêtes réseau ou la lecture/écriture de fichiers) et gère efficacement un pool de threads dédiés à ces tâches. Néanmoins au vu de la taille des images, la différence n'est pas sensé être significative.
 
-(`Dispatchers.Default` est optimisé pour des tâches de calcul (CPU-bound) et ne gère pas bien les opérations de blocage. Cela  pourrait bloquer des threads nécessaires à d'autres calculs.)
+`Dispatchers.Default` est optimisé pour des tâches de calcul (CPU-bound) et ne gère pas bien les opérations de blocage. Cela  pourrait également bloquer des threads nécessaires à d'autres calculs.
 
 Les moyennes des mesures sont :
-- Default : ~180,69 ms
-- IO : ~3329,59 ms
-- Default_2 : ~59,05 ms
-- IO_2 : ~2911,85 ms
+- Default : de 59 ms à 181 ms
+- IO : de 2912 ms à 3330 ms
+
+Ce qui est plutôt étonnant, en répétant plusieurs fois les calculs, il semble que le Default soit 20x plus rapide. On s'attendait plutôt a ne pas voir de différences, vu la taille très faible des images.
 
 === 3.4
 _Nous souhaitons que l’utilisateur puisse cliquer sur une des images de la galerie afin de pouvoir, par exemple, l’ouvrir en plein écran. Comment peut-on mettre en place cette fonctionnalité avec une RecyclerView? Comment faire en sorte que l’utilisateur obtienne un feedback visuel lui indiquant que son clic a bien été effectué, sur la bonne vue._
